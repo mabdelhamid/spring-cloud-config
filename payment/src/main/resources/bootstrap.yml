@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: payment
+  cloud:
+    config:
+#      name: common, payment
+      uri: http://localhost:8888
+      fail-fast: true
+      retry:
+        initialInterval: 3000
+        maxInterval: 5000
+        maxAttempts: 3
+
+encrypt.failOnError: false
+management.security.enabled: false
+logging.level.org.springframework.web: DEBUG
+management.endpoints.enabled-by-default: true
+management.endpoint.info.enabled: true
+management.endpoints.web.exposure.include: '*'

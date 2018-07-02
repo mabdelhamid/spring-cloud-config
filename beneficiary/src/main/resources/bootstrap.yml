@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: beneficiary
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      retry:
+        initialInterval: 3000
+        multiplier: 1.5
+        maxInterval: 5000
+        maxAttempts: 5
+
+encrypt.failOnError: false
+management.security.enabled: false
+logging.level.org.springframework.web: DEBUG
