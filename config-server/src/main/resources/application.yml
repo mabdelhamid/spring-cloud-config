@@ -9,28 +9,22 @@ spring:
           uri: https://github.com/mabdelhamid/cloud-config.git
           force-pull: true
           ignoreLocalSshSettings: true
-
           repos:
-
-            non-prod:
-              uri: https://github.com/mabdelhamid/cloud-config-noprd.git
-              ignoreLocalSshSettings: true
-              pattern:
-                - '*/dev'
-                - '*/sct'
-                - '*/global'
-              searchPaths: dpy/beneficiary, dpy/payment, dpy/global
+            common:
+              uri: https://github.com/mabdelhamid/cloud-config.git
               force-pull: true
-
-            prod:
-              uri: https://dzman@bitbucket.org/dzman/cloud-config-prd.git
-              username: ${bitbucket.user}
-              password: ${bitbucket.pass}
-              pattern:
-                - '*/crt'
-                - '*/prd'
-              searchPaths: beneficiary, payment, common
+              searchPaths: common/*
+              order: 1
+            beneficiary:
+              uri: https://github.com/mabdelhamid/cloud-config.git
               force-pull: true
+              searchPaths: dpy/beneficiary
+              order: 2
+            payment:
+              uri: https://github.com/mabdelhamid/cloud-config.git
+              force-pull: true
+              searchPaths: dpy/payment
+              order: 2
 
 management.security.enabled: false
 logging.level.org.springframework.web: DEBUG
