@@ -21,17 +21,21 @@ public class CheckController {
     @Value("${dpy.message:ConfigServerError}")
     private String message;
 
+    @Value("${payment.user:ConfigServerError}")
+    private String user;
 
-    @RequestMapping("${dpy.check.route}")
+    @Value("${payment.password:ConfigServerError}")
+    private String password;
+
+
+    @RequestMapping("${dpy.check.route:/check}")
     public ResponseEntity<String> check() {
         StringBuilder sb = new StringBuilder("Label : ")
                 .append(serviceName)
                 .append(" - Version : ")
-                .append(serviceVersion);
-
-        if (!message.equals("ConfigServerError")) {
-            sb.append("<br />Welcome Message : ").append(message);
-        }
+                .append(serviceVersion)
+                .append("<br />Welcome Message : ").append(message)
+                .append("<br />OPS credentials " + user + "/" + password);
 
         return ResponseEntity.ok(sb.toString());
     }

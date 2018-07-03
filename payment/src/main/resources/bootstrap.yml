@@ -3,7 +3,6 @@ spring:
     name: payment
   cloud:
     config:
-#      name: common, payment
       uri: http://localhost:8888
       fail-fast: true
       retry:

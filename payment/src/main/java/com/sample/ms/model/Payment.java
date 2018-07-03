@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 //@Entity
 public class Payment {
 
-//    @Id
+    //    @Id
 //    @GeneratedValue
     private Long id;
 

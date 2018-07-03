@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 //@Component
 public class PaymentInitializer /*implements CommandLineRunner*/ {
 
-    private static final Logger log = LoggerFactory.getLogger(com.sample.ms.model.PaymentInitializer.class);
+    private static final Logger log = LoggerFactory.getLogger(PaymentInitializer.class);
 
     private final PaymentRepository paymentRepository;
 
-//    @Autowired
+    //    @Autowired
     public PaymentInitializer(PaymentRepository paymentRepository) {
         this.paymentRepository = paymentRepository;
     }
